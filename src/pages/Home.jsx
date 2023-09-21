@@ -1,11 +1,9 @@
-import Products from "../components/example-products";
-import Carts from "../components/example-carts";
+import ProductsList from "../components/products";
 
 function HomePage() {
   return (
     <>
-      <Carts />
-      <Products />
+    <ProductsList />
     </>
   );
 }
