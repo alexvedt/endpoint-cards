@@ -9,35 +9,41 @@ import  ProductsUI  from "./ui.jsx";
 import Skeleton from "./skeleton.jsx";
 
 
+
+
 export default function ProductsList() {
     const [products, setProducts,] = useState([]);
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
-       useEffect(() => {
-        fetch('https://dummyjson.com/products')
-        .then((res) => res.json()) 
-        .then(({ products }) => setProducts(products))
-        .catch((err) => {
-            console.want(err)
-            setError(err);
-        })
-        .finally(() => setIsLoading(false));
-           
-            
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('https://dummyjson.com/products');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const json = await response.json();
+                setProducts(json.products);
+                console.log("json>>>>>", json)
+            } catch (error) {
+                console.error(error);
+                setError(error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchData();
     }, []);
 
     if (isLoading) {
         return <Skeleton />
-
     }
-    
+
     if (error) {
         return <div>Oh no, something went terribly wrong: {error.message}</div>;
     }
-    
-    
-
 
     return (
         <div className="bg-primary">
