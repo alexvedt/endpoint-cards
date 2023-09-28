@@ -19,12 +19,12 @@ export default function ProductsList() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://dummyjson.com/products');
+                const response = await fetch('https://jsonplaceholder.typicode.com/posts/');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 const json = await response.json();
-                setProducts(json.products);
+                setProducts(json);
                 console.log("json>>>>>", json)
             } catch (error) {
                 console.error(error);
@@ -44,6 +44,7 @@ export default function ProductsList() {
     if (error) {
         return <div>Oh no, something went terribly wrong: {error.message}</div>;
     }
+    console.log("products>>>", products)
 
     return (
         <div className="bg-primary">
@@ -56,3 +57,4 @@ export default function ProductsList() {
         </div>
       );
 }
+
