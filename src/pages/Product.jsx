@@ -1,25 +1,23 @@
-import {useEffect, useState} from 'react';
-
+import { useEffect, useState } from "react";
 
 function ProductPage() {
-const [postData, setPostData] = useState(null);
+  const [postData, setDataPost] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       const searchQuery = window.location.search;
-      const url = new URLSearchParams(searchQuery)
-      const id = url.get('id');
-      const res = await fetch (
-        `https://jsonplaceholder.typicode.com/posts/${id}`
+      const url = new URLSearchParams(searchQuery);
+      const id = url.get("id");
+      const res = await fetch(
+        `https://jsonplaceholder.typicode.com/posts/${id}`,
       );
       const json = await res.json();
-      console.log("json>>>>>", json, id);
-      setPostData(json);
+      console.log(json);
+      setDataPost(json);
     };
+
     fetchData();
   }, []);
-
-
     return (
       <>
 
