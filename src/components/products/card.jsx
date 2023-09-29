@@ -38,9 +38,11 @@ export default function ProductCard({ id, title, body, userId, deletePost }) {
   const [updateBody , setUpdateBody] = useState(body);
   
 
+ const href = new URL(`products/${id}`, window.location.origin);
 
   return (
     <div key={id} className="group relative p-4 bg-white shadow-md rounded-lg flex flex-col justify-between">
+      <a href={href}>
       <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
         <img
           src={"https://source.unsplash.com/random"}
@@ -48,11 +50,11 @@ export default function ProductCard({ id, title, body, userId, deletePost }) {
           className="h-full w-full object-cover object-center lg:h-full lg:w-full"
         />
       </div>
-
+      </a>
       <div className='TESTESTTEST'>
         <h3 className="text-xl font-bold">{title}</h3>
         <p className="text-gray-700">ID: {userId}</p>
-
+       
         {isEditing ? (
             <form onSubmit={handleOnSubmitEdit}>
                 <label htmlFor="postEditBody" className='block mb-2 font-medium text-gray-900 '>
