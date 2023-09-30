@@ -38,7 +38,7 @@ export default function ProductCard({ id, title, body, userId, deletePost }) {
   const [updateBody , setUpdateBody] = useState(body);
   
 
- const href = new URL(`products/${id}`, window.location.origin);
+ const href = new URL(`products/${id}?id=${id}`, window.location.origin);
 
   return (
     <div key={id} className="group relative p-4 bg-white shadow-md rounded-lg flex flex-col justify-between">
