@@ -4,6 +4,7 @@ import LoginPage from "./pages/Login";
 import ProfilePage from "./pages/Profile";
 import Root from "./App";
 import ProductPage from "./pages/Product";
+import RegisterPage from "./pages/Register";
 
 const rootRoute = new RootRoute({
   component: Root,
@@ -32,11 +33,18 @@ const productRoute = new Route({
   component: ProductPage,
 });
 
+const registerRoute = new Route({
+  getParentRoute: () => rootRoute,
+  path: "/register",
+  component: RegisterPage,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   loginRoute,
   profileRoute,
   productRoute,
+  registerRoute,
 ]);
 
 export const router = new Router({ routeTree });
