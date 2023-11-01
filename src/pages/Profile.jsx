@@ -1,9 +1,8 @@
-import ExampleProfile from "../components/example-profile";
-
+import { ApiProfile } from "../components/example-profile";
 function ProfilePage() {
   return (
     <>
-      <ExampleProfile />
+      <ApiProfile />
     </>
   );
 }

@@ -1,16 +1,15 @@
-import { Outlet } from "@tanstack/react-router";
-import Navbar from "./components/Navbar";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <header>
-        <Navbar />
-      </header>
+      <header></header>
 
       <main>
-        <Outlet />
+        <h1 id="h1">Hi</h1>
+        <button data-testid="btn" id="btn">
+          Hi
+        </button>
       </main>
 
       <footer>

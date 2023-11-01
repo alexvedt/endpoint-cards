@@ -4,6 +4,9 @@ function LoginPage() {
   return (
     <>
       <ExampleLoginForm />
+      (function () {
+        console.log("this function is called as soon as the function is defined")
+      })();
     </>
   );
 }

@@ -17,7 +17,7 @@ export default function ProductsList() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const fetchData = async () => {
+      const fetchData = async () => {
             try {
                 const response = await fetch('https://jsonplaceholder.typicode.com/posts/');
                 if (!response.ok) {
