@@ -1,4 +1,5 @@
 import "./App.css";
+import ExampleRegisterForm from "./components/example-login-form";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <button data-testid="btn" id="btn">
           Hi
         </button>
+        <ExampleRegisterForm />
       </main>
 
       <footer>

@@ -1,6 +1,14 @@
 import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 
+function nameString(name) {
+  let b = " sucks";
+  let result = name + b;
+  return result;
+}
+
+console.log(nameString("max"));
+
 function ExampleRegisterForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
